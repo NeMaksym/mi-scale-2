@@ -16,7 +16,6 @@ struct ContentView: View {
     var body: some View {
         TabView {
             ScaleTabView()
-            TeethTabView()
             ProfileTabView()
         }
         .onAppear() {

@@ -16,15 +16,13 @@ class HKManager: ObservableObject {
     let bmiType = HKQuantityType.quantityType(forIdentifier: .bodyMassIndex)!
     let bfpType = HKQuantityType.quantityType(forIdentifier: .bodyFatPercentage)!
     let lbmType = HKQuantityType.quantityType(forIdentifier: .leanBodyMass)!
-    let toothbrushingType = HKCategoryType.categoryType(forIdentifier: .toothbrushingEvent)!
     
     init() {
         let bodyMassAuthStatus = HKStore.authorizationStatus(for: bodyMassType)
         let bmiAuthStatus = HKStore.authorizationStatus(for: bmiType)
         let bfpAuthStatus = HKStore.authorizationStatus(for: bfpType)
         let lbmAuthStatus = HKStore.authorizationStatus(for: lbmType)
-        let toothbrushingAuthStatus = HKStore.authorizationStatus(for: toothbrushingType)
-        healthAuthStatuses = [bodyMassAuthStatus, bmiAuthStatus, bfpAuthStatus, lbmAuthStatus, toothbrushingAuthStatus]
+        healthAuthStatuses = [bodyMassAuthStatus, bmiAuthStatus, bfpAuthStatus, lbmAuthStatus]
     }
     
     var isHealthAuthorized: Bool {
@@ -38,7 +36,7 @@ class HKManager: ObservableObject {
         }
 
         // 2. Request authorization
-        let typesToShare = Set([bodyMassType, bmiType, bfpType, lbmType, toothbrushingType])
+        let typesToShare = Set([bodyMassType, bmiType, bfpType, lbmType])
         let typesToRead: Set<HKObjectType> = []
         
         HKStore.requestAuthorization(toShare: typesToShare, read: typesToRead) { (result, error) in
@@ -64,15 +62,6 @@ class HKManager: ObservableObject {
             quantity: quantity,
             start: date,
             end: date
-        )
-    }
-    
-    func makeCategorySample(type: HKCategoryType, start: Date, end: Date) -> HKCategorySample {
-        HKCategorySample(
-            type: type,
-            value: HKCategoryValue.notApplicable.rawValue,
-            start: start,
-            end: end
         )
     }
     

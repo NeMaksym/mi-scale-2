@@ -17,12 +17,7 @@ struct ContentView: View {
         TabView {
             ScaleTabView()
                 .tabItem {
-                    Label("Scale", systemImage: "1.square.fill")
-                }
-            
-            TeethTabView()
-                .tabItem {
-                    Label("Teeth", systemImage: "2.square.fill")
+                    Label("Scale", systemImage: "scalemass")
                 }
             
             ProfileTabView()
