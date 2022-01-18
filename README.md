@@ -6,12 +6,12 @@ Reads Xiaomi body scale measurements, makes extra parameters calculation, and ad
 2. All your personal data is stored locally in contrast to the official iOS app
 <br/>
 
-<p float="inline-start">
-  <img src="ios.gif" width="282px" height="570px">
+<p float="left">
+  <img src="ios.gif" width="250px" height="506px">
   <img width="25px">
-  <img src="watch.gif" width="217px" height="390px">
+  <img src="watch.gif" width="200px" height="360px">
   <img width="25px">
-  <img src="scale.png" width="400px" height="400px">
+  <img src="scale.png" width="315px" height="315px">
 </p>
 
 ## Features:
